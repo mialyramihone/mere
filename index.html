@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Fête des mères, carte interactive, animations, messages touchants">
+    <meta name="author" content="Mialy RAMIHONE">
+    <meta name="theme-color" content="#ff85a2">
+    <link rel="icon" href="./fond2-copie.ico" type="image/icon">
+
+    <title>Bonne Fête Maman</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&display=swap');
+        
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+        
+        .font-dancing {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .heart-beat {
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .bg-pastel {
+            background: linear-gradient(135deg, #f5d9ff 0%, #ffd6e7 50%, #d6f8ff 100%);
+        }
+        
+        .hidden-step {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        
+        .visible-step {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .btn-pink {
+            background-color: #ff85a2;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .btn-pink:hover {
+            background-color: #ff6b8b;
+            transform: scale(1.05);
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-pastel min-h-screen flex flex-col items-center justify-center p-4 overflow-x-hidden">
+    <div class="max-w-2xl w-full text-center">
+        <!-- Étape 1 - Titre principal -->
+        <div id="step1" class="visible-step">
+            <h1 class="text-5xl md:text-6xl font-pacifico text-pink-600 mb-6 animate__animated animate__bounceIn">
+                Bonne Fête Maman ❤️
+            </h1>
+            <div class="heart-beat text-6xl text-pink-500 mb-8">
+                <i class="fas fa-heart"></i>
+            </div>
+            <p class="text-xl font-dancing text-gray-700 mb-8 animate__animated animate__fadeIn">
+                Clique sur le bouton pour découvrir ton message spécial...
+            </p>
+            <button onclick="nextStep(1)" class="btn-pink px-8 py-3 rounded-full text-lg font-medium shadow-lg animate__animated animate__pulse animate__infinite">
+                <i class="fas fa-gift mr-2"></i> Commencer
+            </button>
+        </div>
+        
+        <!-- Étape 2 - Premier message -->
+        <div id="step2" class="hidden-step">
+            <div class="bg-white bg-opacity-70 rounded-2xl p-6 shadow-xl mb-8">
+                <h2 class="text-3xl font-pacifico text-pink-600 mb-4">À la plus merveilleuse des mamans...</h2>
+                <p class="text-xl font-dancing text-gray-700 mb-4">
+                    Aujourd'hui est une journée spéciale pour te dire à quel point tu es importante pour nous.
+                </p>
+                <div class="flex justify-center space-x-4 my-4">
+                    <!-- <div class="floating text-4xl text-pink-400 animate__animated animate__fadeIn"><i class="fas fa-star"></i></div> -->
+                    <div class="floating text-4xl text-purple-400 animate__animated animate__fadeIn animate__delay-1s"><i class="fas fa-heart"></i></div>
+                    <!-- <div class="floating text-4xl text-yellow-400 animate__animated animate__fadeIn animate__delay-2s"><i class="fas fa-gem"></i></div> -->
+                </div>
+            </div>
+            <button onclick="nextStep(2)" class="btn-pink px-8 py-3 rounded-full text-lg font-medium shadow-lg mt-4">
+                <i class="fas fa-arrow-right mr-2"></i> Continuer
+            </button>
+        </div>
+        
+        <!-- Étape 3 - Message avec photo -->
+        <div id="step3" class="hidden-step">
+            <div class="bg-white bg-opacity-70 rounded-2xl p-6 shadow-xl mb-8">
+                <h2 class="text-3xl font-pacifico text-pink-600 mb-4">Tu es notre rayon de soleil ☀️</h2>
+                <div class="relative w-48 h-48 mx-auto mb-6 overflow-hidden rounded-full border-4 border-pink-300 shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-200 to-purple-300 flex items-center justify-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png" alt="Fleur" class="w-16 h-16">
+                    </div>
+                </div>
+                <p class="text-xl font-dancing text-gray-700">
+                    Merci d'être toujours là pour nous, de nous soutenir et de nous aimer inconditionnellement.
+                </p>
+            </div>
+            <button onclick="nextStep(3)" class="btn-pink px-8 py-3 rounded-full text-lg font-medium shadow-lg mt-4">
+                <i class="fas fa-arrow-right mr-2"></i> Suite du message
+            </button>
+        </div>
+        
+        <!-- Étape 4 - Message final -->
+        <div id="step4" class="hidden-step">
+            <div class="bg-white bg-opacity-70 rounded-2xl p-6 shadow-xl mb-8">
+                <h2 class="text-4xl font-pacifico text-pink-600 mb-6">On t'aime plus que tout au monde !</h2>
+                <div class="grid grid-cols-3 gap-4 mb-6">
+                    <div class="bg-pink-100 rounded-lg p-4 animate__animated animate__fadeInLeft">
+                        <i class="fas fa-hands-helping text-3xl text-pink-500 mb-2"></i>
+                        <p class="font-dancing">Ton soutien</p>
+                    </div>
+                    <div class="bg-purple-100 rounded-lg p-4 animate__animated animate__fadeIn animate__delay-1s">
+                        <i class="fas fa-kiss-wink-heart text-3xl text-purple-500 mb-2"></i>
+                        <p class="font-dancing">Ton amour</p>
+                    </div>
+                    <div class="bg-blue-100 rounded-lg p-4 animate__animated animate__fadeInRight">
+                        <i class="fas fa-laugh-beam text-3xl text-blue-500 mb-2"></i>
+                        <p class="font-dancing">Ta joie</p>
+                    </div>
+                </div>
+                <p class="text-2xl font-dancing text-gray-700 mb-4">
+                    Tu mérites tout le bonheur du monde en cette journée spéciale !
+                </p>
+                <div class="text-5xl text-pink-500 animate__animated animate__heartBeat animate__delay-1s">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+            <button onclick="nextStep(4)" class="btn-pink px-8 py-3 rounded-full text-lg font-medium shadow-lg mt-4">
+                <i class="fas fa-magic mr-2"></i> Voir la surprise finale
+            </button>
+        </div>
+        
+        
+        <div id="step5" class="hidden-step">
+            <div class="relative bg-white rounded-3xl p-8 shadow-2xl max-w-md mx-auto border-8 border-pink-200">
+                <div class="absolute -top-4 -right-4 bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h2 class="text-4xl font-pacifico text-pink-600 mb-6">Joyeuse Fête des Mères !</h2>
+                <div class="mb-6">
+                    <div class="relative w-full h-48 bg-gradient-to-r from-pink-100 to-purple-100 rounded-lg overflow-hidden flex items-center justify-center">
+                        <!-- <i class="fas fa-spa text-6xl text-pink-400 absolute left-8 top-8"></i>
+                        <i class="fas fa-spa text-4xl text-purple-400 absolute right-8 bottom-8"></i> -->
+                        <div class="relative z-10 text-center">
+                            <div class="text-6xl text-pink-500 animate__animated animate__tada">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <p class="font-dancing text-xl mt-4">Pour la meilleure maman du monde</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xl font-dancing text-gray-700 mb-6">
+                    Merci pour tout ce que tu fais. Passe une merveilleuse journée remplie d'amour et de bonheur !
+                </p>
+                <div class="flex justify-center space-x-4 mb-6">
+                    <div class="animate-bounce text-3xl text-pink-400"><i class="fas fa-flower-tulip"></i></div>
+                    <!-- <div class="animate-bounce text-3xl text-yellow-400 animate-delay-100"><i class="fas fa-sun"></i></div>
+                    <div class="animate-bounce text-3xl text-blue-400 animate-delay-200"><i class="fas fa-cloud"></i></div> -->
+                </div>
+                <p class="text-2xl font-pacifico text-pink-600">
+                    On t'aime très fort !
+                </p>
+            </div>
+            <button onclick="createConfetti()" class="btn-pink px-8 py-3 rounded-full text-lg font-medium shadow-lg mt-8 animate__animated animate__pulse">
+                <i class="fas fa-sparkles mr-2"></i> Clique pour des confettis !
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+        
+        function nextStep(step) {
+        
+            document.getElementById(`step${step}`).classList.remove('visible-step');
+            document.getElementById(`step${step}`).classList.add('hidden-step');
+            
+            
+            currentStep = step + 1;
+            if (currentStep <= totalSteps) {
+                document.getElementById(`step${currentStep}`).classList.remove('hidden-step');
+                document.getElementById(`step${currentStep}`).classList.add('visible-step');
+                
+                
+                const elements = document.getElementById(`step${currentStep}`).querySelectorAll('*');
+                elements.forEach((el, index) => {
+                    el.classList.add('animate__animated');
+                    if (index % 2 === 0) {
+                        el.classList.add('animate__fadeInLeft');
+                    } else {
+                        el.classList.add('animate__fadeInRight');
+                    }
+                    el.style.animationDelay = `${index * 0.1}s`;
+                });
+            }
+            
+            
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+        
+        function createConfetti() {
+            const colors = ['#ff85a2', '#ffb6c1', '#ff69b4', '#ff1493', '#db7093', '#c71585'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = -10 + 'px';
+                confetti.style.opacity = '1';
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                
+                const shapes = ['circle', 'square', 'triangle'];
+                const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                
+                if (shape === 'circle') {
+                    confetti.style.borderRadius = '50%';
+                } else if (shape === 'triangle') {
+                    confetti.style.width = '0';
+                    confetti.style.height = '0';
+                    confetti.style.borderLeft = '5px solid transparent';
+                    confetti.style.borderRight = '5px solid transparent';
+                    confetti.style.borderBottom = `10px solid ${confetti.style.backgroundColor}`;
+                    confetti.style.backgroundColor = 'transparent';
+                }
+                
+                document.body.appendChild(confetti);
+                
+                
+                const animationDuration = Math.random() * 3 + 2;
+                
+                confetti.animate([
+                    { top: '-10px', opacity: 1, transform: `rotate(0deg)` },
+                    { top: `${window.innerHeight + 10}px`, opacity: 0, transform: `rotate(${Math.random() * 360}deg)` }
+                ], {
+                    duration: animationDuration * 1000,
+                    easing: 'cubic-bezier(0.1, 0.8, 0.9, 1)'
+                });
+                
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, animationDuration * 1000);
+            }
+            
+            
+            const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3');
+            audio.volume = 0.3;
+            audio.play().catch(e => console.log("Le son ne peut pas être joué sans interaction utilisateur"));
+        }
+    </script>
+</body>
+</html>
