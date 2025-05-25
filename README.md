@@ -20,10 +20,7 @@
 *"Le cœur d'une mère est un abîme au fond duquel se trouve toujours un pardon."*  
 – Honoré de Balzac
 
-## 📸 Preview
-![Prévisualisation](https://via.placeholder.com/800x500/fce4ec/333333?text=Bonne+Fête+Maman+❤️)
-
 ---
 
 💝 **Un projet fait avec** [amour](https://fetemere.netlify.app) **pour toutes les mamans**  
-📆 *Mai 2024* | 🔄 *Mettez à jour les photos/textes librement*
+📆 *Mai 2025* 
